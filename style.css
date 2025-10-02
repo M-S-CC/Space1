@@ -1,0 +1,261 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Cairo', Arial, sans-serif;
+    background: #080815;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#stars-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    display: block;
+    pointer-events: none;
+    background: transparent;
+}
+
+#parallax-bg {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    z-index: 1;
+    pointer-events: none;
+    background: none;
+}
+
+.page-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8, 8, 21, 0.85);
+    padding: 18px 30px 10px 30px;
+    box-shadow: 0 8px 32px 0 #00aeef22;
+}
+
+.logo-text {
+    font-size: 1.6em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #00AEEF;
+    text-shadow: 0 0 10px #00AEEF99,0 0 30px #00AEEF11;
+}
+
+nav button {
+    margin-right: 10px;
+    padding: 8px 28px;
+    border: none;
+    border-radius: 16px;
+    background: #fff;
+    color: #00AEEF;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+nav button:hover {
+    background: #00AEEF;
+    color: #fff;
+}
+
+#home-page main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+#home-page h1 {
+    font-size: 2.7em;
+    margin-top: 0;
+    color: #fff;
+    text-shadow: 0 0 40px #00AEEF44;
+}
+#home-page p {font-size: 1.3em; text-align: center;}
+#start-btn {
+    margin-top: 30px;
+    padding: 18px 60px;
+    border-radius: 25px;
+    background: #00AEEF;
+    color: #111;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 16px #00AEEF88;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#start-btn:hover { background: #007899; color: #fff; }
+
+#puzzle-page main,
+#win-page main,
+#fail-page main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.moon {
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle at 30% 35%, #fffde8 80%, #b1c4e6 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 80px 12px #00aeef44, 0 0 0 6px #fff6, 0 0 50px 10px #fff3 inset;
+    margin-bottom: 12px;
+    position: relative;
+}
+.moon:after {
+    content: '';
+    position: absolute;
+    right: 18px; top: 26px;
+    width: 18px; height: 18px;
+    background: #e7e7dc80;
+    border-radius: 50%;
+    box-shadow: 9px 15px 0 0 #e7e7dc60, -6px -5px 0 0 #bfc9d680;
+}
+.moon.sad {
+    background: radial-gradient(circle at 60% 40%, #b1c4e6 70%, #7a8ab3 100%);
+}
+.hint {
+    margin: 12px 0 28px 0;
+    font-size: 1.15em;
+    color: #00AEEF;
+    background: #fff1;
+    border-radius: 9px;
+    padding: 8px 22px;
+    box-shadow: 0 0 14px #00AEEF22 inset;
+}
+#guess-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#guess-input {
+    padding: 13px 22px;
+    font-size: 1.18em;
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    width: 260px;
+    background: #1a2340;
+    color: #fff;
+    box-shadow: 0 0 0 2px #00aeef50 inset;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+#guess-input:focus { box-shadow: 0 0 0 2px #00AEEF inset; }
+#guess-form button {
+    padding: 12px 45px;
+    border-radius: 16px;
+    border: none;
+    background: #00AEEF;
+    color: #111;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#guess-form button:hover { background: #007899; color: #fff; }
+#result-message {
+    min-height: 2.2em;
+    font-size: 1.15em;
+    margin-top: 8px;
+    color: #ff5a5a;
+    text-shadow: 0 0 5px #ff5a5a55;
+}
+.attempts {
+    margin-top: 14px;
+    font-size: 1.05em;
+    color: #fff;
+}
+
+#fail-page main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#fail-page .moon.sad {
+    margin-bottom: 24px;
+    filter: grayscale(0.3);
+}
+#fail-page h2 {
+    color: #ff5a5a;
+    font-size: 2.1em;
+    margin-bottom: 0;
+}
+#fail-page button {
+    margin-top: 30px;
+    padding: 15px 48px;
+    border-radius: 20px;
+    background: #00AEEF;
+    color: #111;
+    font-size: 1.15em;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 18px #00AEEF55;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#fail-page button:hover { background: #007899; color: #fff; }
+
+#win-page h2.win-message {
+    color: #00AEEF;
+    font-size: 1.7em;
+    margin-top: 0.7em;
+    text-align: center;
+}
+#win-page .red-warning {
+    color: #ff2323;
+    font-weight: bold;
+    background: #fff1;
+    border-radius: 12px;
+    margin-top: 2em;
+    font-size: 1.15em;
+    padding: 8px 26px;
+    text-align: center;
+    box-shadow: 0 0 14px #ff232333 inset;
+}
+
+#about-page main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#about-page h2 {
+    color: #00AEEF;
+    font-size: 2.1em;
+}
+#about-page p {
+    font-size: 1.2em;
+    color: #e9e9ff;
+    max-width: 500px;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.9;
+}
+#about-page a { color: #00AEEF; text-decoration: underline; }
+
+@media (max-width: 600px) {
+    header { flex-direction: column; text-align: center; padding: 10px 6px 6px 6px;}
+    .logo-text { font-size: 1.1em; }
+    nav button { font-size: 0.9em; padding: 8px 12px;}
+    #guess-input { font-size: 1em; width: 98vw; max-width: 98vw;}
+    #win-page h2.win-message { font-size: 1.14em; }
+}

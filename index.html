@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نادي مايكروسوفت | مسابقة كلمة السر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- خلفية النجوم المتحركة -->
+    <canvas id="stars-bg"></canvas>
+    <div id="parallax-bg"></div>
+
+    <!-- صفحة البداية -->
+    <section class="page-container" id="home-page">
+        <header>
+            <div class="logo-text">نادي مايكروسوفت</div>
+            <nav>
+                <button onclick="navigateTo('#about-page')">من نحن</button>
+            </nav>
+        </header>
+        <main>
+            <h1>مسابقة كلمة السر</h1>
+            <p>كلمة السر تنتظر رواد الفضاء لكي يكتشفوها.<br>هل أنت مستعد لاكتشاف اللغز يا رائد الفضاء؟</p>
+            <button id="start-btn">جاهز</button>
+        </main>
+    </section>
+
+    <!-- صفحة اللغز -->
+    <section class="page-container" id="puzzle-page" style="display:none">
+        <header>
+            <div class="logo-text">نادي مايكروسوفت</div>
+            <nav>
+                <button onclick="navigateTo('#about-page')">من نحن</button>
+            </nav>
+        </header>
+        <main>
+            <div class="moon"></div>
+            <h2>حل اللغز التالي:</h2>
+            <div class="hint">
+                <span>التلميح:</span>
+                <span>(شيء خاص فيك يتغير هناك + مكان (صفة))</span>
+            </div>
+            <form id="guess-form" autocomplete="off">
+                <input type="text" id="guess-input" placeholder="أدخل تخمينك..." required>
+                <button type="submit">إرسال</button>
+            </form>
+            <div id="result-message"></div>
+            <div class="attempts">عدد المحاولات المتبقية: <span id="attempts-count"></span></div>
+        </main>
+    </section>
+
+    <!-- صفحة الخسارة -->
+    <section class="page-container" id="fail-page" style="display:none">
+        <header>
+            <div class="logo-text">نادي مايكروسوفت</div>
+            <nav>
+                <button onclick="navigateTo('#about-page')">من نحن</button>
+            </nav>
+        </header>
+        <main>
+            <div class="moon sad"></div>
+            <h2>للأسف، لقد انتهت محاولاتك!</h2>
+            <p>يمكنك معرفة المزيد عن المسابقة أو المحاولة مرة أخرى لاحقًا.</p>
+        </main>
+    </section>
+
+    <!-- صفحة الفوز -->
+    <section class="page-container" id="win-page" style="display:none">
+        <header>
+            <div class="logo-text">نادي مايكروسوفت</div>
+            <nav>
+                <button onclick="navigateTo('#about-page')">من نحن</button>
+            </nav>
+        </header>
+        <main>
+            <div class="moon"></div>
+            <h2 class="win-message">توجه الى الركن الخاص بمايكروسوفت لتجربة حظك بسرعة، العدد محدود!</h2>
+            <p class="red-warning">لا تنسى ان لا تفشي كلمة السر كن رائد بأخلاقك</p>
+        </main>
+    </section>
+
+    <!-- صفحة من نحن -->
+    <section class="page-container" id="about-page" style="display:none">
+        <header>
+            <div class="logo-text">نادي مايكروسوفت</div>
+            <nav>
+                <button onclick="navigateTo('#home-page')">الصفحة الرئيسية</button>
+            </nav>
+        </header>
+        <main>
+            <h2>عن نادي مايكروسوفت</h2>
+            <p>
+                &gt; نادي مايكروسوفت بجامعة الملك عبدالعزيز هو نادي طلابي مدعوم رسميًا بواسطة مايكروسوفت ينشر الثقافة التقنية والريادية في رحاب الجامعة.<br><br>
+                للمزيد: <a href="https://linktr.ee/msc_kau" target="_blank">https://linktr.ee/msc_kau</a><br><br>
+                نسعد بالإنضمام لنا 🚀
+            </p>
+        </main>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
